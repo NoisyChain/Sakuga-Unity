@@ -3,6 +3,7 @@ using System;
 
 namespace SakugaEngine.Resources
 {
+    [CreateAssetMenu(fileName = "New Fighter Stance", menuName = "Sakuga Engine/Fighter Stance", order = 0)]
     public partial class FighterStance : ScriptableObject
     {
         [Header("Settings")]

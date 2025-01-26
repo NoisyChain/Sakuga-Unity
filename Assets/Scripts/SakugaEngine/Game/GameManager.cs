@@ -5,10 +5,11 @@ using SakugaEngine.Collision;
 using SakugaEngine.UI;
 using System.Text;
 using TMPro;
+using UnityEngine.InputSystem;
 
 namespace SakugaEngine.Game
 {
-    public partial class GameManager : MonoBehaviour, IGameState
+    public class GameManager : MonoBehaviour, IGameState
     {
         [SerializeField] private GameMonitor Monitor;
         [SerializeField] public GameObject[] Spawns;
@@ -31,6 +32,7 @@ namespace SakugaEngine.Game
 
         public void Awake()
         {
+            Application.targetFrameRate = 60;
             //healthHUD = (HealthHUD)FighterUI.GetNode("GameHUD_Background");
             //metersHUD = (MetersHUD)FighterUI.GetNode("GameHUD_Foreground");
         }
@@ -40,10 +42,17 @@ namespace SakugaEngine.Game
             if (Fighters == null) return;
             if (Monitor == null) return;
 
-            healthHUD.UpdateHealthBars(Fighters, Monitor);
-            metersHUD.UpdateMeters(Fighters);
+            if (healthHUD != null) healthHUD.UpdateHealthBars(Fighters, Monitor);
+            if (metersHUD != null) metersHUD.UpdateMeters(Fighters);
+            if (SeedViewer != null) SeedViewer.text = finalSeed.ToString();
+        }
+
+        void LateUpdate()
+        {
+            if (Fighters == null) return;
+            if (Monitor == null) return;
+
             Camera.UpdateCamera(Fighters[0].transform, Fighters[1].transform);
-            SeedViewer.text = finalSeed.ToString();
         }
 
         /// <summary>
@@ -76,7 +85,7 @@ namespace SakugaEngine.Game
             {
                 for (int i = 0; i < transform.childCount; i++)
                 {
-                    Destroy(transform.GetChild(i));
+                    Destroy(transform.GetChild(i).gameObject);
                 }
             }
 
@@ -98,11 +107,14 @@ namespace SakugaEngine.Game
             Fighters[0].SetOpponent(Fighters[1]);
             Fighters[1].SetOpponent(Fighters[0]);
 
+            //Temporary code to define player inputs
+            Fighters[1].GetComponent<PlayerInput>().SwitchCurrentActionMap("Keyboard2");
+
             GenerateBaseSeed();
             Monitor.Initialize(Fighters);
 
-            healthHUD.Setup(Fighters);
-            metersHUD.Setup(Fighters);
+            if (healthHUD != null) healthHUD.Setup(Fighters);
+            if (metersHUD != null) metersHUD.Setup(Fighters);
         }
 
         public void GameLoop(byte[] playerInput)
@@ -160,7 +172,7 @@ namespace SakugaEngine.Game
         public byte[] ReadInputs(int id, uint inputSize)
         {
             byte[] input = new byte[inputSize];
-            string prexif = "";
+            /*string prexif = "";
 
             switch (id)
             {
@@ -170,47 +182,49 @@ namespace SakugaEngine.Game
                 case 1:
                     prexif = "k2";
                     break;
-            }
+            }*/
 
-            if (Input.IsActionPressed(prexif + "_up") && !Input.IsActionPressed(prexif + "_down"))
+            PlayerInput controller = Fighters[id].GetComponent<PlayerInput>();
+
+            if (controller.actions["Up"].IsInProgress() && !controller.actions["Down"].IsInProgress())
                     input[0] |= Global.INPUT_UP;
 
-                if (!Input.IsActionPressed(prexif + "_up") && Input.IsActionPressed(prexif + "_down"))
-                    input[0] |= Global.INPUT_DOWN;
+            if (!controller.actions["Up"].IsInProgress() && controller.actions["Down"].IsInProgress())
+                input[0] |= Global.INPUT_DOWN;
 
-                if (Input.IsActionPressed(prexif + "_left") && !Input.IsActionPressed(prexif + "_right"))
-                    input[0] |= Global.INPUT_LEFT;
+            if (controller.actions["Left"].IsInProgress() && !controller.actions["Right"].IsInProgress())
+                input[0] |= Global.INPUT_LEFT;
 
-                if (!Input.IsActionPressed(prexif + "_left") && Input.IsActionPressed(prexif + "_right"))
-                    input[0] |= Global.INPUT_RIGHT;
+            if (!controller.actions["Left"].IsInProgress() && controller.actions["Right"].IsInProgress())
+                input[0] |= Global.INPUT_RIGHT;
 
-                if (Input.IsActionPressed(prexif + "_face_a"))
-                    input[0] |= Global.INPUT_FACE_A;
+            if (controller.actions["Face A"].IsInProgress())
+                input[0] |= Global.INPUT_FACE_A;
 
-                if (Input.IsActionPressed(prexif + "_face_b"))
-                    input[0] |= Global.INPUT_FACE_B;
+            if (controller.actions["Face B"].IsInProgress())
+                input[0] |= Global.INPUT_FACE_B;
 
-                if (Input.IsActionPressed(prexif + "_face_c"))
-                    input[0] |= Global.INPUT_FACE_C;
+            if (controller.actions["Face C"].IsInProgress())
+                input[0] |= Global.INPUT_FACE_C;
 
-                if (Input.IsActionPressed(prexif + "_face_d"))
-                    input[0] |= Global.INPUT_FACE_D;
+            if (controller.actions["Face D"].IsInProgress())
+                input[0] |= Global.INPUT_FACE_D;
 
-                /*if (Input.IsActionPressed(prexif + "_macro_ab"))
-                    input |= Global.INPUT_FACE_A | Global.INPUT_FACE_B;
+            /*if (Input.IsActionPressed(prexif + "_macro_ab"))
+                input |= Global.INPUT_FACE_A | Global.INPUT_FACE_B;
 
-                if (Input.IsActionPressed(prexif + "_macro_ac"))
-                    input |= Global.INPUT_FACE_A | Global.INPUT_FACE_C;
-                
-                if (Input.IsActionPressed(prexif + "_macro_bc"))
-                    input |= Global.INPUT_FACE_B | Global.INPUT_FACE_C;
-
-                if (Input.IsActionPressed(prexif + "_macro_abc"))
-                    input |= Global.INPUT_FACE_A | Global.INPUT_FACE_B | Global.INPUT_FACE_C;
-
-                if (Input.IsActionPressed(prexif + "_macro_abcd"))
-                    input |= Global.INPUT_FACE_A | Global.INPUT_FACE_B | Global.INPUT_FACE_C | Global.INPUT_FACE_D;*/
+            if (Input.IsActionPressed(prexif + "_macro_ac"))
+                input |= Global.INPUT_FACE_A | Global.INPUT_FACE_C;
             
+            if (Input.IsActionPressed(prexif + "_macro_bc"))
+                input |= Global.INPUT_FACE_B | Global.INPUT_FACE_C;
+
+            if (Input.IsActionPressed(prexif + "_macro_abc"))
+                input |= Global.INPUT_FACE_A | Global.INPUT_FACE_B | Global.INPUT_FACE_C;
+
+            if (Input.IsActionPressed(prexif + "_macro_abcd"))
+                input |= Global.INPUT_FACE_A | Global.INPUT_FACE_B | Global.INPUT_FACE_C | Global.INPUT_FACE_D;*/
+        
             
             return input;
         }

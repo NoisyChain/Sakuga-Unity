@@ -1,5 +1,6 @@
 namespace SakugaEngine.Resources
 {
+    [System.Serializable]
     public partial class InputSequence
     {
         public Global.DirectionalInputs Directional = Global.DirectionalInputs.NEUTRAL;

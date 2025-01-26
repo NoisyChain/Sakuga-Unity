@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace SakugaEngine.Resources
 {
+    [CreateAssetMenu(fileName = "New Motion Input", menuName = "Sakuga Engine/Motion Input", order = 0)]
     public class MotionInputs : ScriptableObject
     {
         public InputOption[] ValidInputs;

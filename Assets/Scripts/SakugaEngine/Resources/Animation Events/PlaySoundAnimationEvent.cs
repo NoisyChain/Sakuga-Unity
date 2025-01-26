@@ -1,5 +1,6 @@
 namespace SakugaEngine.Resources
 {
+    [System.Serializable]
     public class PlaySoundAnimationEvent : AnimationEvent
     {
         public Global.SoundType SoundType;

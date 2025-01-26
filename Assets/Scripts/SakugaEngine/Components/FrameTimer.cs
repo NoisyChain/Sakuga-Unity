@@ -9,7 +9,7 @@ namespace SakugaEngine
         [HideInInspector] public uint TimeLeft = 0;
         private bool Paused;
 
-        public void Start(uint startingTime = 0)
+        public void Play(uint startingTime = 0)
         {
             Paused = false;
             TimeLeft = startingTime == 0 ? WaitTime : startingTime;

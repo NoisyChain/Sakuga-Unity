@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace SakugaEngine.Resources
 {
-    //[Icon("res://Sprites/Icons/Icon_Motion.png")]
+    [CreateAssetMenu(fileName = "New Move", menuName = "Sakuga Engine/Move", order = 0)]
     public partial class MoveSettings : ScriptableObject
     {
         public string MoveName;

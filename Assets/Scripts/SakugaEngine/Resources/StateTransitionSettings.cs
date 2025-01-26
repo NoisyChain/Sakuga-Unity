@@ -1,8 +1,8 @@
 using UnityEngine;
-using System;
 
 namespace SakugaEngine.Resources
 {
+    [System.Serializable]
     public partial class StateTransitionSettings
     {
         public int StateIndex = -1;

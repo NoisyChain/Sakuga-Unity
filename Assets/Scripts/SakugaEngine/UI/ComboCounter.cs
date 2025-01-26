@@ -20,7 +20,7 @@ namespace SakugaEngine.UI
 
         public void UpdateCounter(int stunValue, CombatTracker tracker)
         {
-            StunBar.TintProgress = tracker.invalidHit ? InvalidHitColor : DefaultColor;
+            //StunBar.TintProgress = tracker.invalidHit ? InvalidHitColor : DefaultColor;
             StunBar.value = stunValue;
             ComboCount.text = tracker.HitCombo.ToString();
         }

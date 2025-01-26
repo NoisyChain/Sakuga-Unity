@@ -67,7 +67,7 @@ namespace SakugaEngine
             Body.IsLeftSide = GetFighterOwner().Body.IsLeftSide;
             Animator.PlayState(InitialState);
             Animator.Frame = -1;
-            LifeTime.Start();
+            LifeTime.Play();
             if (!CountLifeTimeOnSpawn) LifeTime.Pause();
 
             IsActive = true;
@@ -142,7 +142,7 @@ namespace SakugaEngine
             Body.HitConfirmed = true;
             Body.IsMovable = false;
             GetFighterOwner().Variables.AddSuperGauge(superGaugeGain);
-            GetFighterOwner().HitStop.Start(hitStopDuration);
+            GetFighterOwner().HitStop.Play(hitStopDuration);
             if (hitEffect >= 0)
             {
                 GetFighterOwner().SpawnVFX(hitEffect, VFXSpawn);
@@ -214,7 +214,7 @@ namespace SakugaEngine
                 else
                     CurrentHitCheck = 1;
         
-            LifeTime.Start();
+            LifeTime.Play();
 
             if (DeflectState < 0)
                 Animator.PlayState(Animator.CurrentState, true);

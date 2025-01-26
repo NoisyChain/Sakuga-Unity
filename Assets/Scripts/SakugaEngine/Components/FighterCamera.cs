@@ -58,11 +58,14 @@ namespace SakugaEngine
             transform.position = new Vector3(
                 Mathf.Clamp(transform.position.x, minBounds.x + BoundsAdd, maxBounds.x - BoundsAdd),
                 Mathf.Clamp(transform.position.y, minBounds.y, maxBounds.y), 
-                -FinalZOffset);
+                FinalZOffset);
             
-            charCam.transform.position = transform.position;
-            charCam.transform.rotation = transform.rotation;
-            charCam.fieldOfView = thisCam.fieldOfView;
+            if (charCam != null)
+            {
+                charCam.transform.position = transform.position;
+                charCam.transform.rotation = transform.rotation;
+                charCam.fieldOfView = thisCam.fieldOfView;
+            }
 
             //audioListener.GlobalTranslation = new Vector3(Position.X, Position.Y, 0);
         }

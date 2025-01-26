@@ -80,7 +80,7 @@ namespace SakugaEngine
                 if (owner.Inputs.CheckMotionInputs(GetMove(i).Inputs))
                 {
                     BufferedMove = i;
-                    owner.MoveBuffer.Start();
+                    owner.MoveBuffer.Play();
                     break;
                 }
             }
@@ -101,7 +101,7 @@ namespace SakugaEngine
             if (GetMove(BufferedMove).SuperFlash > 0 && !owner.SuperFlash)
             {
                 owner.GetOpponent().SuperFlash = true;
-                owner.GetOpponent().HitStop.Start((uint)GetMove(BufferedMove).SuperFlash);
+                owner.GetOpponent().HitStop.Play((uint)GetMove(BufferedMove).SuperFlash);
             }
 
             if (GetMove(BufferedMove).MoveState >= 0) 
@@ -158,7 +158,7 @@ namespace SakugaEngine
         private void ChargeButtonSequence()
         {
             if (CurrentMove < 0) return;
-            if (GetCurrentMove().buttonChargeSequence.Length == 0) return;
+            if (GetCurrentMove().buttonChargeSequence.Length == 0 || GetCurrentMove().buttonChargeSequence == null) return;
 
             if (owner.Inputs.CheckInputEnd(GetCurrentMove().Inputs))
             {

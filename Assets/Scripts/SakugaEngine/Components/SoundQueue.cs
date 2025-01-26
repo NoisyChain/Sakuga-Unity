@@ -5,7 +5,7 @@ namespace SakugaEngine
 {
     public class SoundQueue : MonoBehaviour
     {
-        private AudioSource source;
+        [SerializeField] private AudioSource source;
         private bool Queued;
 
         public void Awake()

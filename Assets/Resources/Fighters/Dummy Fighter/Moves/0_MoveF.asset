@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b01a3c88e3c70c41977d1929b4f8939, type: 3}
+  m_Name: 0_MoveF
+  m_EditorClassIdentifier: 
+  MoveName: Move Forward
+  MoveState: 1
+  Inputs: {fileID: 11400000, guid: e5ed7353f14e4f442b3f78dca3e70001, type: 2}
+  SideChange: 2
+  SuperGaugeRequired: 0
+  BuildSuperGauge: 0
+  HealthThreshold: {x: 0, y: 99999}
+  SpendHealth: 0
+  DistanceArea: {x: 0, y: 999999}
+  IsSequenceFromStates: 
+  IgnoreStates: 
+  CancelsTo: 
+  KaraCancelsTo: 
+  ExtraVariablesRequirement: []
+  ExtraVariablesChange: []
+  MoveEnd: 1
+  MoveEndState: 0
+  ChangeStance: -1
+  FrameLimit: -1
+  SuperFlash: 0
+  Priority: 0
+  CanBeOverrided: 1
+  CanOverrideToSelf: 0
+  IgnoreSamePriority: 1
+  InterruptCornerPushback: 0
+  PriorityBuffer: 0
+  WaitForNullStates: 1
+  UseOnGround: 1
+  UseOnAir: 0

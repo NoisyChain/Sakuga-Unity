@@ -1,5 +1,6 @@
 namespace SakugaEngine.Resources
 {
+    [System.Serializable]
     public class ApplyDamageAnimationEvent : AnimationEvent
     {
         public int Index;

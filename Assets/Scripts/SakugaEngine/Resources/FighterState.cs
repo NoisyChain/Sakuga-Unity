@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace SakugaEngine.Resources
 {
+    [CreateAssetMenu(fileName = "New Fighter State", menuName = "Sakuga Engine/Fighter State", order = 0)]
     public class FighterState : ScriptableObject
     {
         public string StateName;

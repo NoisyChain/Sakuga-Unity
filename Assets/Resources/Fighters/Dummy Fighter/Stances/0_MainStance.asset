@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d216ea5917838fc4f89e1de7301aaa78, type: 3}
+  m_Name: 0_MainStance
+  m_EditorClassIdentifier: 
+  IsDamagePersistent: 0
+  IsRoundPersistent: 0
+  NeutralState: 0
+  Moves:
+  - {fileID: 11400000, guid: 2600814f42d7c43429dd6e6b63212c27, type: 2}
+  - {fileID: 11400000, guid: 0bc5bb9fa7973414cb389d48c682a3d5, type: 2}
+  HitReactions: 
+  GroundBlockInitialState: -1
+  CrouchBlockInitialState: -1
+  AirBlockInitialState: -1
+  GroundForwardRecoveryState: -1
+  GroundBackwardsRecoveryState: -1
+  AirForwardRecoveryState: -1
+  AirBackwardsRecoveryState: -1
+  OffTheGroundRecoveryState: -1
+  GroundThrowEscapeState: -1
+  AirThrowEscapeState: -1

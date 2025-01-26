@@ -1,8 +1,8 @@
 using UnityEngine;
-using System;
 
 namespace SakugaEngine.Resources
 {
+    [System.Serializable]
     public class SpawnObjectAnimationEvent : AnimationEvent
     {
         public Global.ObjectType Object;

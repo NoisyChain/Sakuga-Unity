@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace SakugaEngine.Resources
 {
+    [System.Serializable]
     public class TeleportAnimationEvent : AnimationEvent
     {
         public int Index;

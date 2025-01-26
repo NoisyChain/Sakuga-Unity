@@ -242,7 +242,7 @@ namespace SakugaEngine
                     reference = FighterReference().GetOpponent();
                     break;
             }
-            reference.HitStun.Start(Global.MinHitstun);
+            reference.HitStun.Play(Global.MinHitstun);
 
             int finalDamage = damageEvent.Value;
             if (damageEvent.AffectedByModifiers)

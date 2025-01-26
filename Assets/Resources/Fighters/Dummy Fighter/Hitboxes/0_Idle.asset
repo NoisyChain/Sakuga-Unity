@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ce3235e1f9a8ee45a8019a9f3895bf7, type: 3}
+  m_Name: 0_Idle
+  m_EditorClassIdentifier: 
+  PushboxCenter: {x: 0, y: 5000}
+  PushboxSize: {x: 4000, y: 10000}
+  Hitboxes:
+  - Center: {x: 0, y: 7500}
+    Size: {x: 6000, y: 15000}
+    HitboxType: 0
+    HitType: 0
+    BaseDamage: 0
+    ChipDamage: 0
+    ChipDeath: 0
+    KillingBlow: 0
+    GuardCrush: 0
+    Uncrouch: 0
+    GuardCrushDamage: 0
+    SelfSuperGaugeGain: 0
+    OpponentSuperGaugeGain: 0
+    ArmorDamage: 0
+    Priority: 0
+    SelfHitStopDuration: 0
+    OpponentHitStopDuration: 0
+    BlockStopDuration: 0
+    CounterHitStopDuration: 0
+    ClashHitStopDuration: 0
+    DamageScalingSubtract: 0
+    HitEffectIndex: 0
+    BlockEffectIndex: 0
+    ClashEffectIndex: 0
+    ArmorHitEffectIndex: 0
+    GuardCrushEffectIndex: 0
+    GroundHitstunType: 0
+    GroundHitReaction: 0
+    CrouchHitReaction: 0
+    GroundHitKnockback: {x: 0, y: 0}
+    GroundHitKnockbackGravity: 0
+    GroundHitKnockbackTime: 0
+    GroundHitstun: 0
+    GroundBlockKnockback: {x: 0, y: 0}
+    GroundBlockKnockbackGravity: 0
+    GroundBlockKnockbackTime: 0
+    GroundBlockstun: 0
+    AirHitstunType: 0
+    AirHitReaction: 0
+    AirHitKnockback: {x: 0, y: 0}
+    AirHitKnockbackGravity: 0
+    AirHitKnockbackTime: 0
+    AirHitstun: 0
+    AirBlockKnockback: {x: 0, y: 0}
+    AirBlockKnockbackGravity: 0
+    AirBlockKnockbackTime: 0
+    AirBlockstun: 0
+    GroundThrow: 0
+    AirThrow: 0
+    ThrowHitStopDuration: 0
+    ThrowHitReaction: 0
+    AllowSelfPushback: 0
+    SelfPushbackForce: 0
+    SelfPushbackDuration: 0
+    HitConfirmState: 0
+    AllowInertia: 0
+    BounceXTime: 0
+    BounceXIntensity: 0
+    BounceXState: 0
+    BounceYTime: 0
+    BounceYIntensity: 0
+    BounceYState: 0

@@ -1,5 +1,6 @@
 namespace SakugaEngine.Resources
 {
+    [System.Serializable]
     public class ExtraVariableCondition
     {
         public uint Value;

@@ -21,10 +21,10 @@ namespace SakugaEngine.UI
 
         public void Awake()
         {
-            A_Standard = button_A.Frame;
-            B_Standard = button_B.Frame;
-            C_Standard = button_C.Frame;
-            D_Standard = button_D.Frame;
+            //A_Standard = button_A.Frame;
+            //B_Standard = button_B.Frame;
+            //C_Standard = button_C.Frame;
+            //D_Standard = button_D.Frame;
         }
 
         public void SetHistory(InputRegistry reg)
@@ -62,24 +62,24 @@ namespace SakugaEngine.UI
             bool c = (reg.rawInput & Global.INPUT_FACE_C) != 0;
             bool d = (reg.rawInput & Global.INPUT_FACE_D) != 0;
 
-            directional.Frame = dir;
+            //directional.Frame = dir;
                 
-            button_A.Frame = a ? A_Standard + 2 : A_Standard;
-            button_B.Frame = b ? B_Standard + 2 : B_Standard;
-            button_C.Frame = c ? C_Standard + 2 : C_Standard;
-            button_D.Frame = d ? D_Standard + 2 : D_Standard;
+            //button_A.Frame = a ? A_Standard + 2 : A_Standard;
+            //button_B.Frame = b ? B_Standard + 2 : B_Standard;
+            //button_C.Frame = c ? C_Standard + 2 : C_Standard;
+            //button_D.Frame = d ? D_Standard + 2 : D_Standard;
 
             frames.text = reg.duration.ToString();
         }
 
         public void TransferFrom(InputHistoryElement other)
         {
-            directional.Frame = other.directional.Frame;
+            //directional.Frame = other.directional.Frame;
                 
-            button_A.Frame = other.button_A.Frame;
-            button_B.Frame = other.button_B.Frame;
-            button_C.Frame = other.button_C.Frame;
-            button_D.Frame = other.button_D.Frame;
+            //button_A.Frame = other.button_A.Frame;
+            //button_B.Frame = other.button_B.Frame;
+            //button_C.Frame = other.button_C.Frame;
+            //button_D.Frame = other.button_D.Frame;
 
             frames.text = other.frames.text;
         }

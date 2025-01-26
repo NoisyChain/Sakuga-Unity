@@ -6,9 +6,9 @@ namespace SakugaEngine
 {
     public class InputManager : MonoBehaviour
     {
-        public InputRegistry[] InputHistory = new InputRegistry[Global.InputHistorySize];
-        public int CurrentHistory = 0;
-        public int InputSide;
+        [HideInInspector] public InputRegistry[] InputHistory = new InputRegistry[Global.InputHistorySize];
+        [HideInInspector] public int CurrentHistory = 0;
+        [HideInInspector] public int InputSide;
 
         public bool CheckMotionInputs(MotionInputs motion)
         {
