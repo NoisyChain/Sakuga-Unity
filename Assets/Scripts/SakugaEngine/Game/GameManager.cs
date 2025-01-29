@@ -113,8 +113,8 @@ namespace SakugaEngine.Game
             GenerateBaseSeed();
             Monitor.Initialize(Fighters);
 
-            if (healthHUD != null) healthHUD.Setup(Fighters);
-            if (metersHUD != null) metersHUD.Setup(Fighters);
+            healthHUD.Setup(Fighters);
+            metersHUD.Setup(Fighters);
         }
 
         public void GameLoop(byte[] playerInput)

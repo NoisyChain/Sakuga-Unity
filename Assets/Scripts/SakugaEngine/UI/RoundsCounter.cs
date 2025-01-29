@@ -10,6 +10,14 @@ namespace SakugaEngine.UI
         [SerializeField] private int RoundsLimit = 2;
         public Image[] RoundViews;
 
+        public void Setup()
+        {
+            for (int i = 0; i < RoundViews.Length; i++)
+            {
+                RoundViews[i].gameObject.SetActive(false);
+            }
+        }
+
         public void ShowRounds(int roundsCount)
         {
             for (int i = 0; i < RoundsLimit; i++)

@@ -36,8 +36,8 @@ namespace SakugaEngine.UI
 
             GetFrameAdvantage(fighters);
 
-            P1InputHistory.SetHistoryList(fighters[0].Inputs);
-            P2InputHistory.SetHistoryList(fighters[1].Inputs);
+            if (P1InputHistory != null) P1InputHistory.SetHistoryList(fighters[0].Inputs);
+            if (P2InputHistory != null) P2InputHistory.SetHistoryList(fighters[1].Inputs);
 
             P1TrainingInfo.text = TrainingInfoText(fighters[0], fighters[1]);
             P2TrainingInfo.text = TrainingInfoText(fighters[1], fighters[0]);

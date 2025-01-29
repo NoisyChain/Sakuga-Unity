@@ -1,31 +1,25 @@
 using UnityEngine;
 using SakugaEngine;
 using TMPro;
+using UnityEngine.UI;
 
 namespace SakugaEngine.UI
 {
     public class InputHistoryElement : MonoBehaviour
     {
-        public Sprite directional;
-        public Sprite button_A;
-        public Sprite button_B;
-        public Sprite button_C;
-        public Sprite button_D;
-        public TextMeshProUGUI frames;
-        public bool set;
+        public Image directional;
+        public Image button_A;
+        public Image button_B;
+        public Image button_C;
+        public Image button_D;
+        public TextMeshProUGUI duration;
+        //public bool set;
 
-        private int A_Standard;
-        private int B_Standard;
-        private int C_Standard;
-        private int D_Standard;
-
-        public void Awake()
-        {
-            //A_Standard = button_A.Frame;
-            //B_Standard = button_B.Frame;
-            //C_Standard = button_C.Frame;
-            //D_Standard = button_D.Frame;
-        }
+        [SerializeField] private Sprite[] Frames;
+        [SerializeField] private int A_Standard;
+        [SerializeField] private int B_Standard;
+        [SerializeField] private int C_Standard;
+        [SerializeField] private int D_Standard;
 
         public void SetHistory(InputRegistry reg)
         {
@@ -62,26 +56,26 @@ namespace SakugaEngine.UI
             bool c = (reg.rawInput & Global.INPUT_FACE_C) != 0;
             bool d = (reg.rawInput & Global.INPUT_FACE_D) != 0;
 
-            //directional.Frame = dir;
+            directional.sprite = Frames[dir];
                 
-            //button_A.Frame = a ? A_Standard + 2 : A_Standard;
-            //button_B.Frame = b ? B_Standard + 2 : B_Standard;
-            //button_C.Frame = c ? C_Standard + 2 : C_Standard;
-            //button_D.Frame = d ? D_Standard + 2 : D_Standard;
+            button_A.sprite = a ? Frames[A_Standard + 1] : Frames[A_Standard];
+            button_B.sprite = b ? Frames[B_Standard + 1] : Frames[B_Standard];
+            button_C.sprite = c ? Frames[C_Standard + 1] : Frames[C_Standard];
+            button_D.sprite = d ? Frames[D_Standard + 1] : Frames[D_Standard];
 
-            frames.text = reg.duration.ToString();
+            duration.text = reg.duration.ToString();
         }
 
         public void TransferFrom(InputHistoryElement other)
         {
-            //directional.Frame = other.directional.Frame;
+            directional.sprite = other.directional.sprite;
                 
-            //button_A.Frame = other.button_A.Frame;
-            //button_B.Frame = other.button_B.Frame;
-            //button_C.Frame = other.button_C.Frame;
-            //button_D.Frame = other.button_D.Frame;
+            button_A.sprite = other.button_A.sprite;
+            button_B.sprite = other.button_B.sprite;
+            button_C.sprite = other.button_C.sprite;
+            button_D.sprite = other.button_D.sprite;
 
-            frames.text = other.frames.text;
+            duration.text = other.duration.text;
         }
     }
 }

@@ -1623,6 +1623,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5464568244338391472}
+  - component: {fileID: 3008682428274369271}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -1646,3 +1647,16 @@ Transform:
   - {fileID: 8574517874443789795}
   m_Father: {fileID: 5609149181424495586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3008682428274369271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8197149679189547889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f45b04de7d838f438ec6f1c86813c65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CorrectionIntensity: 0.5
