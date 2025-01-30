@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 
 namespace SakugaEngine.Utils
 {
+    [ExecuteInEditMode]
     public partial class HitboxPreviewer : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer[] hitboxGraphics;
@@ -67,8 +68,9 @@ namespace SakugaEngine.Utils
                             hitboxGraphics[j].Modulate = new Color(0.5f, 0.5f, 0.5f);
                             break;*/
                     }
+                    //hitboxGraphics[j].material.SetColor("_Tint", hitboxGraphics[j].color);
                     hitboxGraphics[j].transform.position = Global.ToScaledVector3(previewSettings.Hitboxes[j].Center);
-                    hitboxGraphics[j].transform.localScale = Global.ToScaledVector3(previewSettings.Hitboxes[j].Size, 1f);
+                    hitboxGraphics[j].size = Global.ToScaledVector2(previewSettings.Hitboxes[j].Size);
                 }
             }
         }
@@ -79,8 +81,9 @@ namespace SakugaEngine.Utils
             hitboxGraphics[collisionViewer].gameObject.SetActive(previewSettings.PushboxSize != Vector2Int.zero);
             hitboxGraphics[collisionViewer].sortingOrder = 3;
             hitboxGraphics[collisionViewer].color = new Color(1.0f, 1.0f, 0.0f);
+            //hitboxGraphics[collisionViewer].material.SetColor("_Tint", hitboxGraphics[collisionViewer].color);
             hitboxGraphics[collisionViewer].transform.position = Global.ToScaledVector3(previewSettings.PushboxCenter);
-            hitboxGraphics[collisionViewer].transform.localScale = Global.ToScaledVector3(previewSettings.PushboxSize, 1f);
+            hitboxGraphics[collisionViewer].size = Global.ToScaledVector2(previewSettings.PushboxSize);
         }
     }
 }

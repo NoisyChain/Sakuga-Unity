@@ -62,8 +62,9 @@ namespace SakugaEngine.Utils
                             hitboxGraphics[j].Modulate = new Color(0.5f, 0.5f, 0.5f);
                             break;*/
                     }
+                    //hitboxGraphics[j].material.SetColor("_Tint", hitboxGraphics[j].color);
                     hitboxGraphics[j].transform.position = Global.ToScaledVector3(body.Hitboxes[j].Center);
-                    hitboxGraphics[j].transform.localScale = Global.ToScaledVector3(body.Hitboxes[j].Size, 1f);
+                    hitboxGraphics[j].size = Global.ToScaledVector2(body.Hitboxes[j].Size);
                 }
             }
         }
@@ -74,8 +75,9 @@ namespace SakugaEngine.Utils
             hitboxGraphics[collisionViewer].gameObject.SetActive(body.Pushbox.Active);
             hitboxGraphics[collisionViewer].sortingOrder = 3;
             hitboxGraphics[collisionViewer].color = new Color(1.0f, 1.0f, 0.0f);
+            //hitboxGraphics[collisionViewer].material.SetColor("_Tint", hitboxGraphics[collisionViewer].color);
             hitboxGraphics[collisionViewer].transform.position = Global.ToScaledVector3(body.Pushbox.Center);
-            hitboxGraphics[collisionViewer].transform.localScale = Global.ToScaledVector3(body.Pushbox.Size, 1f);
+            hitboxGraphics[collisionViewer].size = Global.ToScaledVector2(body.Pushbox.Size);
         }
     }
 }

@@ -27,12 +27,12 @@ namespace SakugaEngine
             //audioListener = GetNode<Listener>("Listener");
         }
 
-        public void UpdateCamera(Transform player1, Transform player2)
+        public void UpdateCamera(SakugaFighter player1, SakugaFighter player2)
         {
             if (player1 == null || player2 == null) return;
 
-            Vector3 _p1Position = player1.position;
-            Vector3 _p2Position = player2.position;
+            Vector3 _p1Position = Global.ToScaledVector3(player1.Body.FixedPosition);
+            Vector3 _p2Position = Global.ToScaledVector3(player2.Body.FixedPosition);
 
             bool canSmooth = Mathf.Abs(_p2Position.x - _p1Position.x) > minSmoothDistance;
 

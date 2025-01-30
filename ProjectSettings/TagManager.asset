@@ -8,11 +8,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Characters
   - Water
   - UI
-  - 
-  - 
+  - Hitboxes
+  - UI_Back
   - 
   - 
   - 
@@ -40,4 +40,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Stage_Back
+    uniqueID: 4156949709
+    locked: 0
+  - name: UI_Back
+    uniqueID: 2463087689
+    locked: 0
+  - name: Fighters
+    uniqueID: 1167317373
+    locked: 0
+  - name: Hitboxes
+    uniqueID: 2746656977
+    locked: 0
+  - name: Stage_Front
+    uniqueID: 1881905307
+    locked: 0
+  - name: UI_Front
+    uniqueID: 3592266149
     locked: 0

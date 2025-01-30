@@ -47,12 +47,12 @@ namespace SakugaEngine.Game
             if (SeedViewer != null) SeedViewer.text = finalSeed.ToString();
         }
 
-        void LateUpdate()
+        void FixedUpdate()
         {
             if (Fighters == null) return;
             if (Monitor == null) return;
 
-            Camera.UpdateCamera(Fighters[0].transform, Fighters[1].transform);
+            Camera.UpdateCamera(Fighters[0], Fighters[1]);
         }
 
         /// <summary>
